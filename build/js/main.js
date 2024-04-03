@@ -1,20 +1,11 @@
 "use strict";
-// // Array
-// let names : string[] = ['book','pen'];
-// names.push('pencil')
-Object.defineProperty(exports, "__esModule", { value: true });
-// // Type interface with arrays
-// let fruits = ['banan', 'apple' , 'orange']
-// const f = [10]
-// let things = ['sumsung',true,7]
-// let t = things[0]
-// // Object
-// let user : {firstName:string , age:number , id:number} = {
-//     firstName:'John',
-//     age:22,
-//     id:10
-// }
-// user.firstName = 'Alex'
+// RegEx
+// let re : RegExp = /\w+/g;
+let evh = {
+    name: 'Ali',
+    active: true,
+    albums: ['banan', 10]
+};
 // // Type interface with object
 // let person = {
 //     firstName:'Max',
@@ -58,6 +49,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //     return value + value 
 // }
 // const result = addTogether('hello')
-var greeting = 'mohammad';
-var num = 2;
-console.log(greeting);

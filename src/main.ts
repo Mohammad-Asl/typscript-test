@@ -1,6 +1,15 @@
-// // Array
+// RegEx
+// let re : RegExp = /\w+/g;
+
+// Array
 // let names : string[] = ['book','pen'];
 // names.push('pencil')
+
+// tuple
+// let myTuple : [number, string , boolean] = [21, 'book', true]
+// let mixed = [1,'pen',false]
+
+// myTuple = mixed // Error
 
 // // Type interface with arrays
 // let fruits = ['banan', 'apple' , 'orange']
@@ -17,6 +26,19 @@
 //     id:10
 // }
 // user.firstName = 'Alex'
+
+
+type Guitarist = {
+    name: string,
+    active?: boolean, // bolean or undefined
+    albums: (string | number)[]
+}
+
+let evh : Guitarist = {
+    name:'Ali',
+    active: true,
+    albums: ['banan', 10]
+}
 
 // // Type interface with object
 
@@ -75,9 +97,3 @@
 // }
 
 // const result = addTogether('hello')
-
-let greeting : string = 'mohammad'
-let num : number = 2
-console.log(greeting)
-
-export {}
