@@ -34,11 +34,17 @@ type Guitarist = {
     albums: (string | number)[]
 }
 
-let evh : Guitarist = {
-    name:'Ali',
+let evh: Guitarist = {
+    name: 'Ali',
     active: true,
     albums: ['banan', 10]
 }
+
+let jp: Guitarist = {
+    name: 'Mohammad',
+    albums: ['1', '2', '3', '4']
+}
+evh = jp  // true
 
 // // Type interface with object
 
@@ -87,13 +93,13 @@ let evh : Guitarist = {
 //     hello:'word'
 // }
 
-// // any type in array 
+// // any type in array
 // let things : any[] = ['hey' , 23 , true , null]
 // things.push({id : 3})
 
 // // any type in function
 // function addTogether(value:any) : any {
-//     return value + value 
+//     return value + value
 // }
 
 // const result = addTogether('hello')
