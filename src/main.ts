@@ -56,88 +56,88 @@
 // const age = person.age
 /////////////////////////////////////
 // // Function
-function addNumber(a:number, b:number) : number {
-    return a + b
-}
-
-// const subtractNumber = (a:number, b:number) : number => {
+// function addNumber(a:number, b:number) : number {
 //     return a + b
 // }
 
-// addNumber(2,7)
-// subtractNumber(9,1)
+// // const subtractNumber = (a:number, b:number) : number => {
+// //     return a + b
+// // }
 
-const logMessage = (message:any) : void => { // not returning
-    console.log(message)
-}
+// // addNumber(2,7)
+// // subtractNumber(9,1)
 
-logMessage('Hello World')
-logMessage(addNumber(2,7))
-
-// const addAllNumbers = (items:number[]) : void => {
-//     const total = items.reduce((a,b) => a+b)
-//     console.log(total)
+// const logMessage = (message:any) : void => { // not returning
+//     console.log(message)
 // }
-// addAllNumbers([1,4,2,1])
 
-// type mathFunction = (a:number, b:number) => number // (آرایه و آبجکت)تایپ به همه اشکال میتواند نوشته شود
+// logMessage('Hello World')
+// logMessage(addNumber(2,7))
 
-interface mathFunction { // فقط به صورت آبجکت میاید
-    (a:number, b:number) : number
-}
+// // const addAllNumbers = (items:number[]) : void => {
+// //     const total = items.reduce((a,b) => a+b)
+// //     console.log(total)
+// // }
+// // addAllNumbers([1,4,2,1])
 
-let multiply : mathFunction = function(c,d){
-    return c * d
-}
+// // type mathFunction = (a:number, b:number) => number // (آرایه و آبجکت)تایپ به همه اشکال میتواند نوشته شود
 
-logMessage(multiply(3,9))
+// interface mathFunction { // فقط به صورت آبجکت میاید
+//     (a:number, b:number) : number
+// }
 
-// Optional parameters
-const addAll = (a:number, b:number , c?:number) : number => {
-    if(typeof c !== 'undefined') {
-        return a + b + c
-    }
-    return a + b
-}
+// let multiply : mathFunction = function(c,d){
+//     return c * d
+// }
 
-// Default param value
-const sumAll = (a:number, b:number, c:number=2) : number => {
-    return a + b + c
-}
+// logMessage(multiply(3,9))
 
-logMessage(addAll(1,2,3))
-logMessage(addAll(1,2))
-logMessage(sumAll(1,2))
+// // Optional parameters
+// const addAll = (a:number, b:number , c?:number) : number => {
+//     if(typeof c !== 'undefined') {
+//         return a + b + c
+//     }
+//     return a + b
+// }
 
-// Rest parameters
-const total = (a:number,...nums: number[]) : number => {
-    return a+ nums.reduce((prev,curr) => prev + curr)
-}
-logMessage(total(7,8,10,9))
+// // Default param value
+// const sumAll = (a:number, b:number, c:number=2) : number => {
+//     return a + b + c
+// }
 
-const createError = (errorMessage:string) : never => {
-    throw new Error(errorMessage)
-};
+// logMessage(addAll(1,2,3))
+// logMessage(addAll(1,2))
+// logMessage(sumAll(1,2))
 
-const infinite = () => {
-    let i : number = 1
-    while(true) {
-        i++
-        if( i > 100 ) break
-    }
-}
+// // Rest parameters
+// const total = (a:number,...nums: number[]) : number => {
+//     return a+ nums.reduce((prev,curr) => prev + curr)
+// }
+// logMessage(total(7,8,10,9))
 
-// Custom type guard
-const isNumber = (value : any) : boolean => {
-    return typeof value === 'number' ? true : false
-}
+// const createError = (errorMessage:string) : never => {
+//     throw new Error(errorMessage)
+// };
 
-// use of the never type 
-const numberOfString = ( value : number | string ) : string => {
-    if ( typeof value === 'string' ) return 'string'
-    if(isNumber(value)) return 'number'
-    return createError('This is should never happen!')
-}
+// const infinite = () => {
+//     let i : number = 1
+//     while(true) {
+//         i++
+//         if( i > 100 ) break
+//     }
+// }
+
+// // Custom type guard
+// const isNumber = (value : any) : boolean => {
+//     return typeof value === 'number' ? true : false
+// }
+
+// // use of the never type 
+// const numberOfString = ( value : number | string ) : string => {
+//     if ( typeof value === 'string' ) return 'string'
+//     if(isNumber(value)) return 'number'
+//     return createError('This is should never happen!')
+// }
 
 /////////////////////////////////////
 // Return type interface
@@ -187,5 +187,40 @@ const numberOfString = ( value : number | string ) : string => {
 
 // let userName : 'Mohammad' | 'Hossein' | 'Reza'
 // userName = 'Mohammad' // similar const
+
+/////////////////////////////////////
+// chapter 5 : Assertions
+
+// type One = string
+// type Two = string | number
+// type Three = 'hello'
+
+// // convert to more or less specific
+// let a : One = 'hello'
+// let b = a as Two
+// let c = b as Three
+
+// // not use in React
+// let d = <One>'word'
+// let e = <string | number>'word'
+
+// let addConcat = (a:number , b:number , c:'add'|'concat') : number | string => {
+//     if(c === 'add') return a+b
+//     return ''+a+b
+// }
+// let myVal : string = addConcat(2,2,'concat') as string
+
+// // the DOM
+// const img =document.querySelector('img') as HTMLImageElement // or const img =document.querySelector('img')!
+// const myImg = document.getElementById('#img') as HTMLImageElement
+
+// img.src
+// myImg.src
+
+////////////////////////////////////
+// chapter 6 : Classes
+
+
+
 
 
