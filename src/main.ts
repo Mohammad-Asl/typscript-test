@@ -27,7 +27,6 @@
 // }
 // user.firstName = 'Alex'
 
-
 // type Guitarist = {
 //     name: string,
 //     active?: boolean, // bolean or undefined
@@ -132,7 +131,7 @@
 //     return typeof value === 'number' ? true : false
 // }
 
-// // use of the never type 
+// // use of the never type
 // const numberOfString = ( value : number | string ) : string => {
 //     if ( typeof value === 'string' ) return 'string'
 //     if(isNumber(value)) return 'number'
@@ -144,7 +143,6 @@
 // function formatGreeting(names:string , greeting:string) : string {
 //     return `${names}, ${greeting}`
 // }
-
 
 // const result = formatGreeting('mario' , 'hello')
 /////////////////////////////////////
@@ -219,8 +217,3 @@
 
 ////////////////////////////////////
 // chapter 6 : Classes
-
-
-
-
-
