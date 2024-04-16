@@ -49,65 +49,71 @@
 // const age = person.age
 /////////////////////////////////////
 // // Function
-function addNumber(a, b) {
-    return a + b;
-}
-// const subtractNumber = (a:number, b:number) : number => {
+// function addNumber(a:number, b:number) : number {
 //     return a + b
 // }
-// addNumber(2,7)
-// subtractNumber(9,1)
-const logMessage = (message) => {
-    console.log(message);
-};
-logMessage('Hello World');
-logMessage(addNumber(2, 7));
-let multiply = function (c, d) {
-    return c * d;
-};
-logMessage(multiply(3, 9));
-// Optional parameters
-const addAll = (a, b, c) => {
-    if (typeof c !== 'undefined') {
-        return a + b + c;
-    }
-    return a + b;
-};
-// Default param value
-const sumAll = (a, b, c = 2) => {
-    return a + b + c;
-};
-logMessage(addAll(1, 2, 3));
-logMessage(addAll(1, 2));
-logMessage(sumAll(1, 2));
-// Rest parameters
-const total = (a, ...nums) => {
-    return a + nums.reduce((prev, curr) => prev + curr);
-};
-logMessage(total(7, 8, 10, 9));
-const createError = (errorMessage) => {
-    throw new Error(errorMessage);
-};
-const infinite = () => {
-    let i = 1;
-    while (true) {
-        i++;
-        if (i > 100)
-            break;
-    }
-};
-// Custom type guard
-const isNumber = (value) => {
-    return typeof value === 'number' ? true : false;
-};
-// use of the never type 
-const numberOfString = (value) => {
-    if (typeof value === 'string')
-        return 'string';
-    if (isNumber(value))
-        return 'number';
-    return createError('This is should never happen!');
-};
+// // const subtractNumber = (a:number, b:number) : number => {
+// //     return a + b
+// // }
+// // addNumber(2,7)
+// // subtractNumber(9,1)
+// const logMessage = (message:any) : void => { // not returning
+//     console.log(message)
+// }
+// logMessage('Hello World')
+// logMessage(addNumber(2,7))
+// // const addAllNumbers = (items:number[]) : void => {
+// //     const total = items.reduce((a,b) => a+b)
+// //     console.log(total)
+// // }
+// // addAllNumbers([1,4,2,1])
+// // type mathFunction = (a:number, b:number) => number // (آرایه و آبجکت)تایپ به همه اشکال میتواند نوشته شود
+// interface mathFunction { // فقط به صورت آبجکت میاید
+//     (a:number, b:number) : number
+// }
+// let multiply : mathFunction = function(c,d){
+//     return c * d
+// }
+// logMessage(multiply(3,9))
+// // Optional parameters
+// const addAll = (a:number, b:number , c?:number) : number => {
+//     if(typeof c !== 'undefined') {
+//         return a + b + c
+//     }
+//     return a + b
+// }
+// // Default param value
+// const sumAll = (a:number, b:number, c:number=2) : number => {
+//     return a + b + c
+// }
+// logMessage(addAll(1,2,3))
+// logMessage(addAll(1,2))
+// logMessage(sumAll(1,2))
+// // Rest parameters
+// const total = (a:number,...nums: number[]) : number => {
+//     return a+ nums.reduce((prev,curr) => prev + curr)
+// }
+// logMessage(total(7,8,10,9))
+// const createError = (errorMessage:string) : never => {
+//     throw new Error(errorMessage)
+// };
+// const infinite = () => {
+//     let i : number = 1
+//     while(true) {
+//         i++
+//         if( i > 100 ) break
+//     }
+// }
+// // Custom type guard
+// const isNumber = (value : any) : boolean => {
+//     return typeof value === 'number' ? true : false
+// }
+// // use of the never type
+// const numberOfString = ( value : number | string ) : string => {
+//     if ( typeof value === 'string' ) return 'string'
+//     if(isNumber(value)) return 'number'
+//     return createError('This is should never happen!')
+// }
 /////////////////////////////////////
 // Return type interface
 // function formatGreeting(names:string , greeting:string) : string {
@@ -146,3 +152,57 @@ const numberOfString = (value) => {
 // let myName : 'Ali'
 // let userName : 'Mohammad' | 'Hossein' | 'Reza'
 // userName = 'Mohammad' // similar const
+/////////////////////////////////////
+// chapter 5 : Assertions
+// type One = string
+// type Two = string | number
+// type Three = 'hello'
+// // convert to more or less specific
+// let a : One = 'hello'
+// let b = a as Two
+// let c = b as Three
+// // not use in React
+// let d = <One>'word'
+// let e = <string | number>'word'
+// let addConcat = (a:number , b:number , c:'add'|'concat') : number | string => {
+//     if(c === 'add') return a+b
+//     return ''+a+b
+// }
+// let myVal : string = addConcat(2,2,'concat') as string
+// // the DOM
+// const img =document.querySelector('img') as HTMLImageElement // or const img =document.querySelector('img')!
+// const myImg = document.getElementById('#img') as HTMLImageElement
+// img.src
+// myImg.src
+////////////////////////////////////
+// chapter 6 : Classes
+class Coder {
+    // name: string;
+    //   age: number;
+    //   music: string;
+    //   lang: string;
+    constructor(name, age, music, lang) {
+        this.name = name;
+        this.age = age;
+        this.music = music;
+        this.lang = lang;
+        this.name = name;
+        this.age = age;
+        this.music = music;
+        this.lang = lang;
+    }
+}
+///////////////////////////////////
+// chapter 7 : Index Signatures & keyof Assertions
+// interface transactinObj {
+//     Pizza: number,
+//     Books: number,
+//     Job: number,
+// }
+// const todaysTransactions : transactinObj = {
+//     Pizza: 100,
+//     Books: 200,
+//     Job: 300,
+// }
+// console.log(todaysTransactions.Books)
+// console.log(todaysTransactions['Books'])

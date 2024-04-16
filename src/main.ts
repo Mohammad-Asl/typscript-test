@@ -217,3 +217,34 @@
 
 ////////////////////////////////////
 // chapter 6 : Classes
+
+class Coder {
+  // name: string;
+//   age: number;
+//   music: string;
+//   lang: string;
+
+  constructor(public readonly name: string, public age: number, private music: string, protected lang: string) {
+    this.name = name;
+    this.age = age;
+    this.music = music;
+    this.lang = lang;
+  }
+}
+
+///////////////////////////////////
+// chapter 7 : Index Signatures & keyof Assertions
+
+// interface transactinObj {
+//     Pizza: number,
+//     Books: number,
+//     Job: number,
+// }
+
+// const todaysTransactions : transactinObj = {
+//     Pizza: 100,
+//     Books: 200,
+//     Job: 300,
+// }
+// console.log(todaysTransactions.Books)
+// console.log(todaysTransactions['Books'])
