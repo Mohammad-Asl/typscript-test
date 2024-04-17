@@ -218,33 +218,78 @@
 ////////////////////////////////////
 // chapter 6 : Classes
 
-class Coder {
-  // name: string;
-//   age: number;
-//   music: string;
-//   lang: string;
-
-  constructor(public readonly name: string, public age: number, private music: string, protected lang: string) {
-    this.name = name;
-    this.age = age;
-    this.music = music;
-    this.lang = lang;
-  }
-}
+// class Coder {
+//     // name: string;
+// //   age: number;
+// //   music: string;
+// //   lang: string;
+//
+//     constructor(public readonly name: string, public age: number, private music: string, protected lang: string) {
+//         this.name = name;
+//         this.age = age;
+//         this.music = music;
+//         this.lang = lang;
+//     }
+//
+//     public getAge() {
+//         return `Hello ${this.name}!`;
+//     }
+// }
+//
+// const Asl = new Coder('mohammad', 'Rock', 20)
+// console.log(Asl.getAge())
+// console.log(Asl.age)
 
 ///////////////////////////////////
 // chapter 7 : Index Signatures & keyof Assertions
 
 // interface transactinObj {
+//     readonly [index : string]: number
 //     Pizza: number,
 //     Books: number,
 //     Job: number,
 // }
-
-// const todaysTransactions : transactinObj = {
+//
+// const todaysTransactions: transactinObj = {
 //     Pizza: 100,
 //     Books: 200,
 //     Job: 300,
+//     // dave:'ojo' // Error, because is not number
 // }
 // console.log(todaysTransactions.Books)
 // console.log(todaysTransactions['Books'])
+//
+// let prop : string = 'Pizza'
+// console.log(todaysTransactions[prop])
+//
+// const todaysNet = (transactions : transactinObj) : number => {
+//     let total = 0
+//     for (const transaction in transactions) {
+//         total += transactions[transaction]
+//     }
+//     return total
+// }
+// console.log(todaysNet((todaysTransactions)))
+//
+// console.log(todaysTransactions['dave'])
+
+//////////
+
+interface Student {
+    name: string,
+    GPA : number,
+    classes ?: number[]
+}
+const student : Student = {
+    name:'mohammad',
+    GPA:3.6,
+    classes:[20,100]
+}
+
+for (const key in student) {
+    console.log(`${key} : ${student[key as keyof Student]}`)
+}
+
+const logStudentKey = (student : Student , key : keyof Student) : void => {
+    console.log(`student ${key} : ${student[key]}`)
+}
