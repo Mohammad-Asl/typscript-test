@@ -275,21 +275,59 @@
 
 //////////
 
-interface Student {
-    name: string,
-    GPA : number,
-    classes ?: number[]
-}
-const student : Student = {
-    name:'mohammad',
-    GPA:3.6,
-    classes:[20,100]
+// interface Student {
+//     name: string,
+//     GPA : number,
+//     classes ?: number[]
+// }
+// const student : Student = {
+//     name:'mohammad',
+//     GPA:3.6,
+//     classes:[20,100]
+// }
+//
+// for (const key in student) {
+//     console.log(`${key} : ${student[key as keyof Student]}`)
+// }
+//
+// const logStudentKey = (student : Student , key : keyof Student) : void => {
+//     console.log(`student ${key} : ${student[key]}`)
+// }
+
+////////////////////////////////////////
+// chapter 8 : Generics
+
+const addUID = <T extends object>(obj:T) => {
+    let uid = Math.floor(Math.random() * 100)
+    return {...obj, uid}
 }
 
-for (const key in student) {
-    console.log(`${key} : ${student[key as keyof Student]}`)
+let docOne = addUID({name:'Ali' , age : 20})
+// let docTwo = addUID('Hello World') // Err, Because Hello.... is not obj
+
+console.log(docOne.age)
+
+// const test = <T>(to:T) : T => to
+
+// Generics with interface
+enum ResourceName { MOHAMMAD , ASL , ALI} // Enum
+
+interface Resource<T> {
+    uis:number,
+    name:ResourceName,
+    data:T
 }
 
-const logStudentKey = (student : Student , key : keyof Student) : void => {
-    console.log(`student ${key} : ${student[key]}`)
+const docThree : Resource<number> = {
+    uis:3,
+    name:ResourceName.ALI,
+    // data:{age:20}, // Error,Because T is number , is not obj
+    data:9,
 }
+
+const docFour : Resource<string[]> = {
+    uis:4,
+    name:ResourceName.MOHAMMAD,
+    data:['age','name','id']
+}
+ //
