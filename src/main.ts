@@ -330,4 +330,17 @@ const docFour : Resource<string[]> = {
     name:ResourceName.MOHAMMAD,
     data:['age','name','id']
 }
- //
+
+//////////////////////////////////////////////
+// chapter 10 : utility types
+
+interface Assignment {
+    studentId:string,
+    title:string,
+    grade:number,
+    varified:boolean
+}
+
+const updateAssignment = (assign:Assignment , propsUpdate:Partial<Assignment>) : Assignment => {
+    return {...assign , ...propsUpdate}
+}
